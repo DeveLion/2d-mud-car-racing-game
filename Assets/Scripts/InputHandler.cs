@@ -11,6 +11,7 @@ public class InputHandler : MonoBehaviour
     public bool canMove;
 
     CarController carController;
+    public Shooting shooting;
 
 
     // Start is called before the first frame update
@@ -41,6 +42,8 @@ public class InputHandler : MonoBehaviour
 
         }
         Accelerate();
+
+        Shoot();
     }
 
     void CheckOwner()
@@ -61,5 +64,13 @@ public class InputHandler : MonoBehaviour
     {
         carController.input = input;
 
+    }
+
+    void Shoot()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && gameObject.tag == "Player")
+        {
+            shooting.Shoot();
+        }
     }
 }

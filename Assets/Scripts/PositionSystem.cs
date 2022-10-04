@@ -49,6 +49,9 @@ public class PositionSystem : MonoBehaviour
 
         SetCheckpoint();
         SetCarPosition();
+
+        Cars[0].transform.GetChild(5).GetComponent<CarCPManager>().CarPosition = totalCars;
+        PositionText.text = "POS " + Cars[0].transform.GetChild(5).GetComponent<CarCPManager>().CarPosition + "/" + totalCars;
     }
 
     void SetCheckpoint()
@@ -70,6 +73,7 @@ public class PositionSystem : MonoBehaviour
 
 
             Cars[i].transform.GetChild(5).GetComponent<CarCPManager>().maxCheckpoint = CheckpointsHolder.transform.childCount;
+
         }
 
 
@@ -141,6 +145,19 @@ public class PositionSystem : MonoBehaviour
     public void SetUIText()
     {
         PositionText = GameObject.Find("Text - Pos").GetComponent<TMP_Text>();
+
+
+    }
+
+
+    public void SetCarsAtRuntime(GameObject[] aicars)
+    {
+        for (int i = 0; i < aicars.Length; i++)
+        {
+            Cars[i+1] = aicars[i];
+            
+        }
+
 
 
     }

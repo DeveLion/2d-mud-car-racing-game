@@ -22,6 +22,14 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] string currentDifficult;
 
+    [SerializeField] GameObject[] PlayerCarPrefab;
+    [SerializeField] GameObject[] AICarPrefab;
+    [SerializeField] Transform PlayerSpwnPos;
+    [SerializeField] Transform AIStartSpwnPos;
+
+
+    public Cinemachine.CinemachineVirtualCamera c_VirtualCamera;
+
 
 
 
@@ -44,8 +52,15 @@ public class GameManager : MonoBehaviour
     {
 
         Time.timeScale = 1;
-        isPause = false;
         GetDifficult();
+
+        CreatePlayer();
+        CreateAICars();
+
+        isPause = false;
+
+        c_VirtualCamera = GetComponent<Cinemachine.CinemachineVirtualCamera>();
+        
         StartCoroutine(StartCountdown());
     }
 
@@ -53,6 +68,67 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         Pause();
+    }
+
+
+    void CreatePlayer()
+    {
+        int id = PlayerPrefs.GetInt("CurrentCar");
+        Debug.Log("car player " + id);
+        GameObject go = Instantiate(PlayerCarPrefab[id], PlayerSpwnPos.position, Quaternion.identity);
+        Player = go;
+
+        Player.transform.GetChild(4).gameObject.layer = 17;
+
+        c_VirtualCamera.Follow = Player.transform;
+
+    }
+
+    void CreateAICars()
+    {
+        int n_ai = 3;
+        int ai_dif = 0;
+
+        if (currentDifficult == "easy")
+        {
+            n_ai = 3;
+            ai_dif = 0;
+        }
+        else if (currentDifficult == "medium")
+        {
+            n_ai = 5;
+            ai_dif = 1;
+        }
+        else if (currentDifficult == "hard")
+        {
+            n_ai = 10;
+            ai_dif = 2;
+        }
+
+        AICars = new GameObject[n_ai];
+
+        for (int i = 0; i < n_ai; i++)
+        {
+            GameObject go = Instantiate(AICarPrefab[ai_dif], AIStartSpwnPos.position, Quaternion.identity);
+            AIStartSpwnPos.position = new Vector2(AIStartSpwnPos.position.x + 7f, AIStartSpwnPos.position.y);
+            AICars[i] = go;
+            SetGameLayerRecursive(go, i + 7);
+
+            AICars[i].transform.GetChild(4).gameObject.layer = 17;
+            AICars[i].transform.GetChild(4).gameObject.tag = "CP";
+        }
+
+
+        //SetAIDifficult();
+
+
+        PositionSystem.instance.Cars = new GameObject[n_ai + 1];
+
+        PositionSystem.instance.Cars[0] = Player;
+
+        PositionSystem.instance.SetCarsAtRuntime(AICars);
+
+        
     }
 
 
@@ -84,7 +160,7 @@ public class GameManager : MonoBehaviour
     void GetDifficult()
     {
         currentDifficult = PlayerPrefs.GetString("CurrentDifficult");
-        SetAIDifficult();
+        //SetAIDifficult();
     }
 
     void SetAIDifficult()
@@ -134,12 +210,13 @@ public class GameManager : MonoBehaviour
         Player.GetComponent<InputHandler>().enabled = true;
         Player.GetComponent<CarController>().enabled = true;
 
+        /*
         foreach (GameObject car in AICars)
         {
             car.GetComponent<InputHandler>().enabled = true;
             car.GetComponent<CarController>().enabled = true;
             car.GetComponent<InputHandler>().canMove = true;
-        }
+        }*/
 
 
         PositionSystem.instance.StartPositioning();
@@ -211,6 +288,25 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+
+    private void SetGameLayerRecursive(GameObject _go, int _layer)
+    {
+        _go.layer = _layer;
+        _go.tag = "AI";
+        foreach (Transform child in _go.transform)
+        {
+            child.gameObject.layer = _layer;
+            child.gameObject.tag = "AI";
+
+            Transform _HasChildren = child.GetComponentInChildren<Transform>();
+            if (_HasChildren != null)
+                SetGameLayerRecursive(child.gameObject, _layer);
+
+        }
+
+       
     }
 
 

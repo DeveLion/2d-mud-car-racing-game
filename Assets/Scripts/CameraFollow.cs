@@ -14,7 +14,7 @@ public class CameraFollow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        zPos = transform.position.z;
+        zPos = -10f;
     }
 
     // Update is called once per frame
