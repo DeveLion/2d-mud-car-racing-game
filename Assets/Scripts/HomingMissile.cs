@@ -22,9 +22,8 @@ public class HomingMissile : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
 
-        rb.velocity = transform.right * speed;
+        transform.position = Vector2.Lerp(transform.position, target.position, Time.fixedDeltaTime * speed) ;
     }
 
 
@@ -32,7 +31,7 @@ public class HomingMissile : MonoBehaviour
     {
         if (collision.gameObject.tag == "AI")
         {
-            collision.transform.parent.gameObject.GetComponent<CarManager>().GetHit();
+            collision.transform.parent.gameObject.GetComponent<CarManager>().Explosion();
             Destroy(this.gameObject);
         }
     }

@@ -10,6 +10,8 @@ public class CarManager : MonoBehaviour
     CarController CarController;
     InputHandler inputHandler;
 
+ 
+
 
     public BoxCollider2D FrontCollider;
     public BoxCollider2D BackCollider;
@@ -94,6 +96,18 @@ public class CarManager : MonoBehaviour
         BackCollider.enabled = true;
         inputHandler.canMove = true;
         CarController.ResetCarMovement();
+    }
+
+
+    public void Explosion()
+    {
+        ManageCollidersAndRigidbodies(false);
+        anim.SetBool("Explosion", true);
+    }
+
+    public void CanDestroy()
+    {
+        gameObject.SetActive(false);
     }
 
 
