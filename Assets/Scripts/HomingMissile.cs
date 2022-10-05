@@ -12,11 +12,12 @@ public class HomingMissile : MonoBehaviour
 
     private Rigidbody2D rb;
 
-
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        
     }
 
     // Update is called once per frame
@@ -31,8 +32,12 @@ public class HomingMissile : MonoBehaviour
     {
         if (collision.gameObject.tag == "AI")
         {
+            
             collision.transform.parent.gameObject.GetComponent<CarManager>().Explosion();
+            
             Destroy(this.gameObject);
         }
     }
+
+   
 }

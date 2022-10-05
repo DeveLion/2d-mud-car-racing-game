@@ -837,8 +837,8 @@ MonoBehaviour:
   FrontWheel: {fileID: 846565765656114168}
   BackWheel: {fileID: 846565765509895843}
   Car: {fileID: 846565767227936639}
-  carSpeed: -1
-  carTorque: -4
+  carSpeed: -2
+  maxSpeed: 5
   input: 0
   canMove: 1
 --- !u!114 &846565767227936625
@@ -854,6 +854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canMove: 1
+  shooting: {fileID: 0}
 --- !u!95 &846565767227936624
 Animator:
   serializedVersion: 4

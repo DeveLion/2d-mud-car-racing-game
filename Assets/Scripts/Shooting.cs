@@ -7,7 +7,7 @@ public class Shooting : MonoBehaviour
 
     public GameObject bullet;
     public GameObject target;
-    bool canShoot = false;
+    public bool canShoot = false;
 
      
     // Start is called before the first frame update
@@ -33,14 +33,26 @@ public class Shooting : MonoBehaviour
             target.transform.GetChild(7).gameObject.SetActive(true);
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "AI")
+        {
+            target.transform.GetChild(7).gameObject.SetActive(false);
+            canShoot = false;
+            target = null;
+            
+        }
+    }
     public void Shoot()
     {
-        if (canShoot)
+        if (canShoot && target != null && target.transform.position.x > transform.position.x)
         {
             Debug.Log("shoot missile");
             canShoot = false;
             GameObject go = Instantiate(bullet,transform.position, Quaternion.identity);
             go.GetComponent<HomingMissile>().target = target.transform;
+            target = null;
         }
     }
 }

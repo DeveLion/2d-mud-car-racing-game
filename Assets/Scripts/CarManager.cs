@@ -101,6 +101,7 @@ public class CarManager : MonoBehaviour
 
     public void Explosion()
     {
+        CarController.canMove = false;
         ManageCollidersAndRigidbodies(false);
         anim.SetBool("Explosion", true);
     }

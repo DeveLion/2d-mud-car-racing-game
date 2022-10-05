@@ -352,7 +352,7 @@ MonoBehaviour:
   BackWheel: {fileID: 2164127328524479757}
   Car: {fileID: 2164127327963018449}
   carSpeed: -3
-  carTorque: -6
+  maxSpeed: 12
   input: 0
   canMove: 1
 --- !u!114 &2164127327963018463
@@ -935,8 +935,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6273660437013428774}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 25, y: 10, z: 1}
+  m_LocalPosition: {x: 6, y: 0.5, z: 0}
+  m_LocalScale: {x: 8, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2164127327963018452}

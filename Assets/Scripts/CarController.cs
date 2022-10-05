@@ -9,7 +9,7 @@ public class CarController : MonoBehaviour
     public Rigidbody2D BackWheel;
     public Rigidbody2D Car;
     public float carSpeed;
-    public float carTorque;
+    public float maxSpeed;
     public float input;
 
     public bool canMove;
@@ -18,11 +18,16 @@ public class CarController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (canMove)
+        if (canMove )
         {
-            FrontWheel.AddTorque(input * carSpeed + Time.fixedDeltaTime);
-            BackWheel.AddTorque(input * carSpeed + Time.fixedDeltaTime);
-            Car.AddTorque(input * carSpeed + Time.fixedDeltaTime);
+
+            if (FrontWheel.velocity.magnitude < maxSpeed && BackWheel.velocity.magnitude < maxSpeed && Car.velocity.magnitude < maxSpeed)
+            {
+                FrontWheel.AddTorque(input * carSpeed + Time.fixedDeltaTime);
+                BackWheel.AddTorque(input * carSpeed + Time.fixedDeltaTime);
+                Car.AddTorque(input * carSpeed + Time.fixedDeltaTime);
+            }
+           
         }
         else
         {
@@ -52,18 +57,18 @@ public class CarController : MonoBehaviour
 
         if (difficult == "easy")
         {
-            carSpeed = -1f;
-            carTorque = -4f;
+            carSpeed = -2f;
+            maxSpeed = -5f;
         }
         else if (difficult == "medium")
         {
             carSpeed = -2f;
-            carTorque = -4f;
+            maxSpeed = 10f;
         }
         else if (difficult == "hard")
         {
-            carSpeed = -2f;
-            carTorque = -6f;
+            carSpeed = -3f;
+            maxSpeed = 15f;
         }
     }
 }
