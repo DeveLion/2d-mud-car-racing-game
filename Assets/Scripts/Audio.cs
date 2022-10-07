@@ -62,11 +62,13 @@ public class Audio : MonoBehaviour
     {
         if (isActive)
         {
+            isActive = false;
             ManageAudio(false);
             audioBtn.sprite = audioOFF;
         }
         else
         {
+            isActive = true;
             ManageAudio(true);
             audioBtn.sprite = audioON;
         }
