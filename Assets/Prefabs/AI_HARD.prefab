@@ -761,6 +761,7 @@ GameObject:
   - component: {fileID: 5184981096045690724}
   - component: {fileID: 5184981096045690725}
   - component: {fileID: 5184981096045690726}
+  - component: {fileID: 6692965809589618035}
   m_Layer: 6
   m_Name: AI_HARD
   m_TagString: Player
@@ -876,7 +877,7 @@ MonoBehaviour:
   BackWheel: {fileID: 5184981094259418806}
   Car: {fileID: 5184981096045690730}
   carSpeed: -3
-  maxSpeed: 14
+  maxSpeed: 10
   input: 0
   canMove: 1
 --- !u!114 &5184981096045690724
@@ -936,6 +937,18 @@ MonoBehaviour:
   - {fileID: 5184981094259418807}
   - {fileID: 5184981094398411758}
   - {fileID: 5184981095333414919}
+--- !u!114 &6692965809589618035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5184981096045690734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4b12301b5edd4649978b3002ee11b5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5184981096262355371
 GameObject:
   m_ObjectHideFlags: 0

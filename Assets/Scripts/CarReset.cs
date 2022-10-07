@@ -32,7 +32,7 @@ public class CarReset : MonoBehaviour
     private void ResetCar()
     {
         transform.eulerAngles = new Vector3(0,0,0);
-        transform.position = new Vector2(transform.position.x, transform.position.y + 1f);
+        transform.position = new Vector2(transform.position.x, transform.position.y + 2f);
         StartCoroutine(Timer());
     }
 

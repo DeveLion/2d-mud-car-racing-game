@@ -262,6 +262,7 @@ GameObject:
   - component: {fileID: 3175447201314766578}
   - component: {fileID: 3175447201314766579}
   - component: {fileID: 3175447201314766576}
+  - component: {fileID: 8470952722862892980}
   m_Layer: 6
   m_Name: AI_MEDIUM
   m_TagString: AI
@@ -437,6 +438,18 @@ MonoBehaviour:
   - {fileID: 3175447200885253921}
   - {fileID: 3175447200739033720}
   - {fileID: 3175447201958726033}
+--- !u!114 &8470952722862892980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3175447201314766584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4b12301b5edd4649978b3002ee11b5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3175447201390041466
 GameObject:
   m_ObjectHideFlags: 0

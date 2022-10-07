@@ -67,7 +67,13 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Pause();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+
+            Pause();
+
+
+        }
     }
 
 
@@ -110,7 +116,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < n_ai; i++)
         {
             GameObject go = Instantiate(AICarPrefab[ai_dif], AIStartSpwnPos.position, Quaternion.identity);
-            AIStartSpwnPos.position = new Vector2(AIStartSpwnPos.position.x + 7f, AIStartSpwnPos.position.y);
+            AIStartSpwnPos.position = new Vector2(AIStartSpwnPos.position.x + 8f, AIStartSpwnPos.position.y);
             AICars[i] = go;
             SetGameLayerRecursive(go, i + 7);
 
@@ -171,19 +177,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Pause()
+    public void Pause()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (!isPause && isStarted)
         {
-
-            if (!isPause && isStarted)
-            {
-                isPause = true;
-                PausePanel.SetActive(true);
-                Time.timeScale = 0;
-
-            }
-
+            isPause = true;
+            PausePanel.SetActive(true);
+            Time.timeScale = 0;
 
         }
     }

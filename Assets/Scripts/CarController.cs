@@ -10,11 +10,18 @@ public class CarController : MonoBehaviour
     public Rigidbody2D Car;
     public float carSpeed;
     public float maxSpeed;
+    public float defaultCarSpeed;
+    public float defaultMaxSpeed;
     public float input;
 
     public bool canMove;
 
+    private void Start()
+    {
+        defaultCarSpeed = carSpeed;
+        defaultMaxSpeed = maxSpeed;
 
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -71,4 +78,7 @@ public class CarController : MonoBehaviour
             maxSpeed = 15f;
         }
     }
+
+
+    
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6a27ffcb2e1cc5b41b52eb2f6c9e051a
+guid: 2d5de353afdd83145a463248a3f4e24e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,7 +69,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -128,13 +128,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: InterfaceAtlas_0
+      name: atlas0_9_0
       rect:
         serializedVersion: 2
-        x: 111
-        y: 50
-        width: 22
-        height: 21
+        x: 901
+        y: 654
+        width: 79
+        height: 86
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,20 +142,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 871b90a1280088a4f85785b50f371570
-      internalID: 905781193
+      spriteID: 46df9e0dd647a8c4dbb4027c0c0f1232
+      internalID: -566876680
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: InterfaceAtlas_1
+      name: atlas0_9_1
       rect:
         serializedVersion: 2
-        x: 83
-        y: 103
-        width: 26
-        height: 25
+        x: 1006
+        y: 316
+        width: 16
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,8 +163,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 632e1231a4722b344b1e614583ab6071
-      internalID: -1312300632
+      spriteID: ea5015fbeb4be1545b34cace65fd419d
+      internalID: 1436813071
       vertices: []
       indices: 
       edges: []
@@ -180,8 +180,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      InterfaceAtlas_1: -1312300632
-      InterfaceAtlas_0: 905781193
+      atlas0_9_0: -566876680
+      atlas0_9_1: 1436813071
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
