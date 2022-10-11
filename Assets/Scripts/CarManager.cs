@@ -91,6 +91,26 @@ public class CarManager : MonoBehaviour
         }
     }
 
+    public void ManageCollidersAndRigidbodiesFinish(bool enable)
+    {
+
+        if (!enable)
+        {
+        
+            /*
+            foreach (Rigidbody2D rb in carRigibodeis)
+            {
+                rb.gravityScale = 0;
+            }*/
+
+            foreach (Collider2D cd in carColliders)
+            {
+                cd.enabled = false;
+            }
+        }
+    }
+
+
 
     IEnumerator WaitToRespawn()
     {

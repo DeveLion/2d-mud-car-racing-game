@@ -17,5 +17,16 @@ public class FinishLine : MonoBehaviour
             Debug.Log("finish line");
             GameManager.instance.RaceFinished();
         }
+        else if (collision.gameObject.tag == "AI") {
+
+            Debug.Log("ai passfinish line");
+            collision.transform.parent.gameObject.GetComponent<CarInputHandle>().canMove = false;
+            collision.transform.parent.gameObject.GetComponent<CarControllerNew>().canMove = false;
+            //collision.transform.parent.gameObject.GetComponent<CarControllerNew>().StopCar();
+            collision.transform.parent.gameObject.GetComponent<CarManager>().ManageCollidersAndRigidbodiesFinish(false);
+            collision.transform.parent.gameObject.GetComponent<CarManager>().ResetCar();
+        }
     }
+
+    
 }

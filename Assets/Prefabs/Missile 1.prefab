@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  speed: 5
+  speed: 20
   rotationSpeed: 200
 --- !u!1001 &7118493241934089909
 PrefabInstance:

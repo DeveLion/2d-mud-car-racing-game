@@ -539,6 +539,8 @@ MonoBehaviour:
   landingParticleSystem: {fileID: 0}
   canMove: 1
   isNitrous: 0
+  backWheel: {fileID: 2164127328524479757}
+  frontWheel: {fileID: 2164127328393988182}
 --- !u!114 &5047484890080400035
 MonoBehaviour:
   m_ObjectHideFlags: 0

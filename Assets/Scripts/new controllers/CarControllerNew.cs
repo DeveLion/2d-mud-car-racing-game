@@ -33,6 +33,7 @@ public class CarControllerNew : MonoBehaviour
 
     //Components
     Rigidbody2D carRigidbody2D;
+    public Rigidbody2D backWheel, frontWheel;
     Collider2D carCollider;
     //CarSfxHandler carSfxHandler;
 
@@ -63,8 +64,18 @@ public class CarControllerNew : MonoBehaviour
         }
         else
         {
-            
             carRigidbody2D.velocity = Vector2.zero;
+            carRigidbody2D.angularVelocity = 0;
+            carRigidbody2D.angularDrag = 0;
+
+            backWheel.velocity = Vector2.zero;
+            backWheel.angularVelocity = 0;
+            backWheel.angularDrag = 0;
+
+            frontWheel.velocity = Vector2.zero;
+            frontWheel.angularVelocity = 0;
+            frontWheel.angularDrag = 0;
+
         }
         
     }
@@ -162,13 +173,13 @@ public class CarControllerNew : MonoBehaviour
         {
             steeringInput = inputVector.y;
             accelerationInput = inputVector.x;
-            Debug.Log("no nos" + accelerationInput);
+            //Debug.Log("no nos" + accelerationInput);
         }
         else
         {
             steeringInput = inputVector.y *2;
             accelerationInput = inputVector.x*2;
-            Debug.Log("nos" + accelerationInput);
+            //Debug.Log("nos" + accelerationInput);
         }
        
     }
@@ -291,6 +302,7 @@ public class CarControllerNew : MonoBehaviour
         //FrontWheel.velocity = Vector2.zero;
         //BackWheel.velocity = Vector2.zero;
         carRigidbody2D.velocity = Vector2.zero;
+       
     }
 
     public void ResetCarMovement()
