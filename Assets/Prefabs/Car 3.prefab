@@ -402,6 +402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carController: {fileID: 5672511128443799601}
+  carControllerNew: {fileID: 2022799210151115500}
   nitrousEffect: {fileID: 3738918527945196186}
 --- !u!1 &5672511128384876470
 GameObject:
@@ -708,6 +709,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   landingParticleSystem: {fileID: 0}
   canMove: 1
+  isNitrous: 0
 --- !u!114 &8306651954963057223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -722,6 +724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayer: 0
   canMove: 1
+  shooting: {fileID: 5440203049443509303}
 --- !u!1 &5672511128763743985
 GameObject:
   m_ObjectHideFlags: 0

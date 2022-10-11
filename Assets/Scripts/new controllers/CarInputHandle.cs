@@ -13,6 +13,8 @@ public class CarInputHandle : MonoBehaviour
 
     public bool canMove = true;
 
+    public Shooting shooting;
+
     private void Awake()
     {
         carController = GetComponent<CarControllerNew>();
@@ -52,11 +54,11 @@ public class CarInputHandle : MonoBehaviour
         }
 
 
-       
-
-       
 
         carController.SetInputVector(inputVector);
+
+
+        Shoot();
     }
 
 
@@ -72,5 +74,13 @@ public class CarInputHandle : MonoBehaviour
             isPlayer = false;
         }
 
+    }
+
+    void Shoot()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && gameObject.tag == "Player")
+        {
+            shooting.Shoot();
+        }
     }
 }

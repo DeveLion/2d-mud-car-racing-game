@@ -43,7 +43,8 @@ public class CarManager : MonoBehaviour
         FrontCollider.enabled = false;
         BackCollider.enabled = false;
         inputHandler.canMove = false;
-        CarController.StopCar();
+        //CarController.StopCar();
+        CarControllerNew.StopCar();
         anim.SetBool("Hit", true);
         StartCoroutine(WaitToRespawn());
     }
@@ -55,7 +56,8 @@ public class CarManager : MonoBehaviour
         FrontCollider.enabled = true;
         BackCollider.enabled = true;
         inputHandler.canMove = true;
-        CarController.ResetCarMovement();
+        //CarController.ResetCarMovement();
+        CarControllerNew.ResetCarMovement();
     }
 
     public void ManageCollidersAndRigidbodies(bool enable)
@@ -98,13 +100,15 @@ public class CarManager : MonoBehaviour
         FrontCollider.enabled = true;
         BackCollider.enabled = true;
         inputHandler.canMove = true;
-        CarController.ResetCarMovement();
+        CarControllerNew.ResetCarMovement();
+        //CarController.ResetCarMovement();
     }
 
 
     public void Explosion()
     {
-        CarController.canMove = false;
+        //CarController.canMove = false;
+        CarControllerNew.canMove = false;
         ManageCollidersAndRigidbodies(false);
         anim.SetBool("Explosion", true);
     }

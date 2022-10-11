@@ -6,7 +6,7 @@ public class Nitrous : MonoBehaviour
 {
 
     public CarController carController;
-
+    public CarControllerNew carControllerNew;
     Animator camAnim;
 
     public GameObject nitrousEffect;
@@ -30,16 +30,18 @@ public class Nitrous : MonoBehaviour
     {
         if (collision.gameObject.tag == "Nitrous")
         {
-            Destroy(collision.gameObject);
+            
             ActivateNitrous();
+            Destroy(collision.gameObject);
         }
     }
 
 
     void ActivateNitrous()
     {
-        carController.carSpeed = carController.carSpeed * 2;
-        carController.maxSpeed = carController.maxSpeed + 10;
+        //carController.carSpeed = carController.carSpeed * 2;
+        //carController.maxSpeed = carController.maxSpeed + 10;
+        carControllerNew.isNitrous = true;
         camAnim.SetBool("Shake", true);
         nitrousEffect.SetActive(true);
         StartCoroutine(DisactivateNitrous());
@@ -48,8 +50,9 @@ public class Nitrous : MonoBehaviour
     IEnumerator DisactivateNitrous()
     {
         yield return new WaitForSeconds(3f);
-        carController.carSpeed = carController.defaultCarSpeed;
-        carController.maxSpeed = carController.defaultMaxSpeed;
+        //carController.carSpeed = carController.defaultCarSpeed;
+        //carController.maxSpeed = carController.defaultMaxSpeed;
+        carControllerNew.isNitrous = false;
         camAnim.SetBool("Shake", false);
         nitrousEffect.SetActive(false);
         StopCoroutine(DisactivateNitrous());

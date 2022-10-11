@@ -29,6 +29,7 @@ public class CarControllerNew : MonoBehaviour
     bool isJumping = false;
 
     public bool canMove;
+    public bool isNitrous = false;
 
     //Components
     Rigidbody2D carRigidbody2D;
@@ -157,9 +158,19 @@ public class CarControllerNew : MonoBehaviour
     {
         //steeringInput = inputVector.x;
         //accelerationInput = inputVector.y;
-
-        steeringInput = inputVector.y;
-        accelerationInput = inputVector.x;
+        if (!isNitrous)
+        {
+            steeringInput = inputVector.y;
+            accelerationInput = inputVector.x;
+            Debug.Log("no nos" + accelerationInput);
+        }
+        else
+        {
+            steeringInput = inputVector.y *2;
+            accelerationInput = inputVector.x*2;
+            Debug.Log("nos" + accelerationInput);
+        }
+       
     }
 
     public float GetVelocityMagnitude()
@@ -286,4 +297,6 @@ public class CarControllerNew : MonoBehaviour
     {
         canMove = true;
     }
+
+    
 }

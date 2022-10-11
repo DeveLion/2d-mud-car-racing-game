@@ -930,7 +930,7 @@ MonoBehaviour:
   driftFactor: 0.95
   accelerationFactor: 30
   turnFactor: 3.5
-  maxSpeed: 20
+  maxSpeed: 10
   carSpriteRenderer: {fileID: 0}
   jumpCurve:
     serializedVersion: 2
