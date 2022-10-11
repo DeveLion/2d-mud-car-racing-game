@@ -5,14 +5,15 @@ using UnityEngine;
 public class CarReset : MonoBehaviour
 {
 
-    CarController carController;
+    CarControllerNew carController;
 
     bool canReset = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        carController = GetComponent<CarController>();
+        //carController = GetComponent<CarController>();
+        carController = GetComponent<CarControllerNew>();
     }
 
     // Update is called once per frame

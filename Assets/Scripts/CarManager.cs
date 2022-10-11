@@ -8,6 +8,7 @@ public class CarManager : MonoBehaviour
     Animator anim;
 
     CarController CarController;
+    CarControllerNew CarControllerNew;
     InputHandler inputHandler;
 
  
@@ -24,7 +25,7 @@ public class CarManager : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        CarController = GetComponent<CarController>();
+        CarControllerNew = GetComponent<CarControllerNew>();
         inputHandler = GetComponent<InputHandler>();
     }
 
@@ -71,6 +72,8 @@ public class CarManager : MonoBehaviour
             {
                 cd.enabled = true;
             }
+
+            carRigibodeis[0].gravityScale = 5;
         }
         else
         {

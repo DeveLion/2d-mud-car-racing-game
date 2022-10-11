@@ -724,6 +724,8 @@ GameObject:
   - component: {fileID: 846565767227936624}
   - component: {fileID: 846565767227936627}
   - component: {fileID: 8373790911981677322}
+  - component: {fileID: 1899395239848735285}
+  - component: {fileID: 3150724089461445697}
   m_Layer: 6
   m_Name: AI_EASY
   m_TagString: Player
@@ -830,7 +832,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 846565767227936635}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99166a1868f51554d95d176100aa968a, type: 3}
   m_Name: 
@@ -840,6 +842,8 @@ MonoBehaviour:
   Car: {fileID: 846565767227936639}
   carSpeed: -2
   maxSpeed: 5
+  defaultCarSpeed: 0
+  defaultMaxSpeed: 0
   input: 0
   canMove: 1
 --- !u!114 &846565767227936625
@@ -849,7 +853,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 846565767227936635}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ae01598ed9885d48b94fd90795387f0, type: 3}
   m_Name: 
@@ -911,6 +915,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4b12301b5edd4649978b3002ee11b5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1899395239848735285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846565767227936635}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b5c27df925e2d74dac62633a676b886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  driftFactor: 0.95
+  accelerationFactor: 30
+  turnFactor: 3.5
+  maxSpeed: 20
+  carSpriteRenderer: {fileID: 0}
+  jumpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  landingParticleSystem: {fileID: 0}
+  canMove: 1
+--- !u!114 &3150724089461445697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846565767227936635}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a574cce60f708b4f871f4409bcd14b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayer: 0
+  canMove: 1
 --- !u!1 &6528533230050491415
 GameObject:
   m_ObjectHideFlags: 0

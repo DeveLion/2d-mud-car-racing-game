@@ -30,11 +30,15 @@ public class CarController : MonoBehaviour
 
             if (FrontWheel.velocity.magnitude < maxSpeed && BackWheel.velocity.magnitude < maxSpeed && Car.velocity.magnitude < maxSpeed)
             {
-                FrontWheel.AddTorque(input * carSpeed + Time.fixedDeltaTime);
-                BackWheel.AddTorque(input * carSpeed + Time.fixedDeltaTime);
-                Car.AddTorque(input * carSpeed + Time.fixedDeltaTime);
+
+                var impulse = input * carSpeed;
+                FrontWheel.AddTorque(impulse, ForceMode2D.Impulse);
+                BackWheel.AddTorque(impulse, ForceMode2D.Impulse);
+                Car.AddTorque(impulse, ForceMode2D.Impulse);
+
+                //Car.AddTorque(input * carSpeed + Time.fixedDeltaTime);
             }
-           
+
         }
         else
         {

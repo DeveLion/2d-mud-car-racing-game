@@ -173,6 +173,7 @@ public class GameManager : MonoBehaviour
     {
         foreach (GameObject ai in AICars)
         {
+            //ai.GetComponent<CarController>().SetAIDifficult(currentDifficult);
             ai.GetComponent<CarController>().SetAIDifficult(currentDifficult);
         }
     }
@@ -207,16 +208,19 @@ public class GameManager : MonoBehaviour
     public void StartRace()
     {
         GamePlayPanel.SetActive(true);
-        Player.GetComponent<InputHandler>().enabled = true;
-        Player.GetComponent<CarController>().enabled = true;
+        //Player.GetComponent<InputHandler>().enabled = true;
+        //Player.GetComponent<CarController>().enabled = true;
+        Player.GetComponent<CarInputHandle>().enabled = true;
+        Player.GetComponent<CarControllerNew>().enabled = true;
 
-        /*
+
         foreach (GameObject car in AICars)
         {
-            car.GetComponent<InputHandler>().enabled = true;
-            car.GetComponent<CarController>().enabled = true;
-            car.GetComponent<InputHandler>().canMove = true;
-        }*/
+            //car.GetComponent<InputHandler>().enabled = true;
+            //car.GetComponent<CarController>().enabled = true;
+            car.GetComponent<CarInputHandle>().enabled = true;
+            car.GetComponent<CarControllerNew>().enabled = true;
+        }
 
 
         PositionSystem.instance.StartPositioning();
@@ -269,13 +273,17 @@ public class GameManager : MonoBehaviour
 
     void DisableAllCars()
     {
-        Player.GetComponent<InputHandler>().canMove = false;
-        Player.GetComponent<CarController>().canMove = false;
+        //Player.GetComponent<InputHandler>().canMove = false;
+       // Player.GetComponent<CarController>().canMove = false;
+        Player.GetComponent<CarInputHandle>().canMove = false;
+        Player.GetComponent<CarControllerNew>().canMove = false;
 
         foreach (GameObject car in AICars)
         {
-            car.GetComponent<InputHandler>().canMove = false;
-            car.GetComponent<CarController>().canMove = false;
+            //car.GetComponent<InputHandler>().canMove = false;
+            //car.GetComponent<CarController>().canMove = false;
+            car.GetComponent<CarInputHandle>().canMove = false;
+            car.GetComponent<CarControllerNew>().canMove = false;
         }
     }
 

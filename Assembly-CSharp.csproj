@@ -64,6 +64,8 @@
     <Compile Include="Assets\Scripts\Shooting.cs" />
     <Compile Include="Assets\Scripts\MenuManager.cs" />
     <Compile Include="Assets\Scripts\CarController.cs" />
+    <Compile Include="Assets\Scripts\new controllers\CarControllerNew.cs" />
+    <Compile Include="Assets\Scripts\new controllers\CarInputHandle.cs" />
     <Compile Include="Assets\Scripts\CarReset.cs" />
     <Compile Include="Assets\Scripts\HitManager.cs" />
     <Compile Include="Assets\Scripts\InputHandler.cs" />

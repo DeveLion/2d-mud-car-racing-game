@@ -762,6 +762,8 @@ GameObject:
   - component: {fileID: 5184981096045690725}
   - component: {fileID: 5184981096045690726}
   - component: {fileID: 6692965809589618035}
+  - component: {fileID: 5314078299974334533}
+  - component: {fileID: 4640908617989112837}
   m_Layer: 6
   m_Name: AI_HARD
   m_TagString: Player
@@ -868,7 +870,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5184981096045690734}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99166a1868f51554d95d176100aa968a, type: 3}
   m_Name: 
@@ -878,6 +880,8 @@ MonoBehaviour:
   Car: {fileID: 5184981096045690730}
   carSpeed: -3
   maxSpeed: 10
+  defaultCarSpeed: 0
+  defaultMaxSpeed: 0
   input: 0
   canMove: 1
 --- !u!114 &5184981096045690724
@@ -887,7 +891,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5184981096045690734}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ae01598ed9885d48b94fd90795387f0, type: 3}
   m_Name: 
@@ -949,6 +953,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4b12301b5edd4649978b3002ee11b5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5314078299974334533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5184981096045690734}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b5c27df925e2d74dac62633a676b886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  driftFactor: 0.95
+  accelerationFactor: 100
+  turnFactor: 3.5
+  maxSpeed: 100
+  carSpriteRenderer: {fileID: 0}
+  jumpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  landingParticleSystem: {fileID: 0}
+  canMove: 1
+--- !u!114 &4640908617989112837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5184981096045690734}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a574cce60f708b4f871f4409bcd14b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayer: 0
+  canMove: 1
 --- !u!1 &5184981096262355371
 GameObject:
   m_ObjectHideFlags: 0

@@ -491,6 +491,8 @@ GameObject:
   - component: {fileID: 5672511128443799615}
   - component: {fileID: 5672511128443799612}
   - component: {fileID: 5429024949146412101}
+  - component: {fileID: 2022799210151115500}
+  - component: {fileID: 8306651954963057223}
   m_Layer: 6
   m_Name: Car 3
   m_TagString: Player
@@ -537,7 +539,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -681,6 +683,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4b12301b5edd4649978b3002ee11b5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2022799210151115500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5672511128443799604}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b5c27df925e2d74dac62633a676b886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  driftFactor: 0.95
+  accelerationFactor: 100
+  turnFactor: 3.5
+  maxSpeed: 100
+  carSpriteRenderer: {fileID: 0}
+  jumpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  landingParticleSystem: {fileID: 0}
+  canMove: 1
+--- !u!114 &8306651954963057223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5672511128443799604}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a574cce60f708b4f871f4409bcd14b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayer: 0
+  canMove: 1
 --- !u!1 &5672511128763743985
 GameObject:
   m_ObjectHideFlags: 0
