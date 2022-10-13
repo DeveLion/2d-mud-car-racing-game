@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
 
         CreatePlayer();
         CreateAICars();
+        
 
         isPause = false;
 
@@ -79,6 +80,25 @@ public class GameManager : MonoBehaviour
 
     void CreatePlayer()
     {
+
+        int pl_speed = 0;
+
+        if (currentDifficult == "easy")
+        {
+
+            pl_speed = 25;
+        }
+        else if (currentDifficult == "medium")
+        {
+
+            pl_speed = 35;
+        }
+        else if (currentDifficult == "hard")
+        {
+
+            pl_speed = 45;
+        }
+
         int id = PlayerPrefs.GetInt("CurrentCar");
         Debug.Log("car player " + id);
         GameObject go = Instantiate(PlayerCarPrefab[id], PlayerSpwnPos.position, Quaternion.identity);
@@ -88,27 +108,34 @@ public class GameManager : MonoBehaviour
 
         c_VirtualCamera.Follow = Player.transform;
 
+        Player.gameObject.GetComponent<CarControllerNew>().accelerationFactor = pl_speed;
+        Player.gameObject.GetComponent<CarControllerNew>().maxSpeed = pl_speed;
+
     }
 
     void CreateAICars()
     {
         int n_ai = 3;
         int ai_dif = 0;
+        int ai_speed = 0;
 
         if (currentDifficult == "easy")
         {
             n_ai = 3;
             ai_dif = 0;
+            ai_speed = 20;
         }
         else if (currentDifficult == "medium")
         {
             n_ai = 5;
             ai_dif = 1;
+            ai_speed = 30;
         }
         else if (currentDifficult == "hard")
         {
             n_ai = 10;
             ai_dif = 2;
+            ai_speed =40;
         }
 
         AICars = new GameObject[n_ai];
@@ -116,12 +143,23 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < n_ai; i++)
         {
             GameObject go = Instantiate(AICarPrefab[ai_dif], AIStartSpwnPos.position, Quaternion.identity);
-            AIStartSpwnPos.position = new Vector2(AIStartSpwnPos.position.x + 8f, AIStartSpwnPos.position.y);
+            AIStartSpwnPos.position = new Vector2(AIStartSpwnPos.position.x + 6f, AIStartSpwnPos.position.y);
             AICars[i] = go;
             SetGameLayerRecursive(go, i + 7);
 
             AICars[i].transform.GetChild(4).gameObject.layer = 17;
             AICars[i].transform.GetChild(4).gameObject.tag = "CP";
+
+            //set game mode speed
+            AICars[i].gameObject.GetComponent<CarControllerNew>().accelerationFactor = ai_speed;
+            AICars[i].gameObject.GetComponent<CarControllerNew>().maxSpeed = ai_speed;
+
+            if (i >= n_ai - 2)
+            {
+                AICars[i].gameObject.GetComponent<CarControllerNew>().accelerationFactor = ai_speed + 5;
+                AICars[i].gameObject.GetComponent<CarControllerNew>().maxSpeed = ai_speed + 5;
+                AICars[i].gameObject.GetComponent<CarInputHandle>().CanScaleAISpeed();
+            }
         }
 
 
@@ -208,11 +246,6 @@ public class GameManager : MonoBehaviour
     public void StartRace()
     {
         GamePlayPanel.SetActive(true);
-        //Player.GetComponent<InputHandler>().enabled = true;
-        //Player.GetComponent<CarController>().enabled = true;
-        Player.GetComponent<CarInputHandle>().enabled = true;
-        Player.GetComponent<CarControllerNew>().enabled = true;
-
 
         foreach (GameObject car in AICars)
         {
@@ -222,6 +255,15 @@ public class GameManager : MonoBehaviour
             car.GetComponent<CarControllerNew>().enabled = true;
         }
 
+
+
+        //Player.GetComponent<InputHandler>().enabled = true;
+        //Player.GetComponent<CarController>().enabled = true;
+        Player.GetComponent<CarInputHandle>().enabled = true;
+        Player.GetComponent<CarControllerNew>().enabled = true;
+
+
+       
 
         PositionSystem.instance.StartPositioning();
 

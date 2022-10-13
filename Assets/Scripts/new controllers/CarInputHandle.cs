@@ -15,6 +15,8 @@ public class CarInputHandle : MonoBehaviour
 
     public Shooting shooting;
 
+    public bool aiScaled = false;
+
     private void Awake()
     {
         carController = GetComponent<CarControllerNew>();
@@ -39,6 +41,7 @@ public class CarInputHandle : MonoBehaviour
             if (canMove)
             {
                 inputVector.x = Input.GetAxis("Horizontal");
+                
                 inputVector.y = 0;
             }
 
@@ -47,8 +50,18 @@ public class CarInputHandle : MonoBehaviour
         {
             if (canMove)
             {
-                inputVector.x = 1;
-                inputVector.y = 0;
+                if (!aiScaled)
+                {
+                    inputVector.x = 1;
+                    inputVector.y = 0;
+                }
+                else
+                {
+                    inputVector.x = 0.5f;
+                    inputVector.y = 0;
+                    
+                }
+               
             }
 
         }
@@ -72,6 +85,7 @@ public class CarInputHandle : MonoBehaviour
         else
         {
             isPlayer = false;
+           
         }
 
     }
@@ -82,5 +96,20 @@ public class CarInputHandle : MonoBehaviour
         {
             shooting.Shoot();
         }
+    }
+
+
+    public void CanScaleAISpeed()
+    {
+        StartCoroutine(ScaleAISpeed());
+    }
+    
+    IEnumerator ScaleAISpeed()
+    {
+        yield return new WaitForSecondsRealtime(10f);
+        aiScaled = true;
+        carController.accelerationFactor = carController.accelerationFactor - 10f;
+        carController.maxSpeed = carController.maxSpeed - 10f;
+        StopCoroutine(ScaleAISpeed());
     }
 }

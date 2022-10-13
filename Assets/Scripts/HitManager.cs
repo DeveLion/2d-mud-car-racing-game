@@ -22,18 +22,7 @@ public class HitManager : MonoBehaviour
          CheckAction(collision.collider);
     }
 
-    private void CollisionEnter2D(Collider2D collision)
-    {
-
-        
-        
-
-
-       
-
-
-    }
-
+   
     void CheckAction(Collider2D hittedObject)
     {
         if (gameObject.name == "FrontCollider")
@@ -45,9 +34,31 @@ public class HitManager : MonoBehaviour
         }
         else if (gameObject.name == "BackCollider")
         {
-            //call action to destroy this object
-            GetComponent<BoxCollider2D>().enabled = false;
-            gameObject.transform.parent.gameObject.GetComponent<CarManager>().GetHit();
+
+            if (gameObject.transform.parent.tag == "Player")
+            {
+                //get hit for player
+                
+                GetComponent<BoxCollider2D>().enabled = false;
+                gameObject.transform.parent.gameObject.GetComponent<CarManager>().GetHit();
+            }
+            else
+            {
+
+                if (hittedObject.transform.parent.tag == "Player")
+                {
+                    //call action to destroy this object
+                    GetComponent<BoxCollider2D>().enabled = false;
+                    gameObject.transform.parent.gameObject.GetComponent<CarManager>().Explosion();
+                }
+                else
+                {
+                    GetComponent<BoxCollider2D>().enabled = false;
+                    gameObject.transform.parent.gameObject.GetComponent<CarManager>().GetHit();
+                }
+               
+            }
+           
 
         }
     }

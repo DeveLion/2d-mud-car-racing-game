@@ -31,6 +31,8 @@ public class CarCPManager : MonoBehaviour
            
             if (gameObject.layer == collision.gameObject.layer)
             {
+
+                //Debug.Log("Pass checkpoint");
                 
                 if (canPass)
                 {

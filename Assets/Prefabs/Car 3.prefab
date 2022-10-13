@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 4755481347407510953}
   m_Layer: 6
   m_Name: Car_sprite
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -697,9 +697,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   driftFactor: 0.95
-  accelerationFactor: 100
+  accelerationFactor: 0
   turnFactor: 3.5
-  maxSpeed: 100
+  maxSpeed: 0
   carSpriteRenderer: {fileID: 0}
   jumpCurve:
     serializedVersion: 2
@@ -727,6 +727,7 @@ MonoBehaviour:
   isPlayer: 0
   canMove: 1
   shooting: {fileID: 5440203049443509303}
+  aiScaled: 0
 --- !u!1 &5672511128763743985
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,7 +740,7 @@ GameObject:
   - component: {fileID: 5672511128763743999}
   m_Layer: 6
   m_Name: Car_sprite intern
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -825,7 +826,7 @@ GameObject:
   - component: {fileID: 5672511128887759340}
   m_Layer: 6
   m_Name: back_tire
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -948,7 +949,7 @@ GameObject:
   - component: {fileID: 5672511129008944311}
   m_Layer: 6
   m_Name: front_tire
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1070,7 +1071,7 @@ GameObject:
   - component: {fileID: 5440203049443509303}
   m_Layer: 6
   m_Name: MissileTrigger
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1131,3 +1132,4 @@ MonoBehaviour:
   bullet: {fileID: 3162961277314286960, guid: ded46836c0e6c7246bd1a9804dd1b656, type: 3}
   target: {fileID: 0}
   canShoot: 0
+  canPlayeShoot: 0

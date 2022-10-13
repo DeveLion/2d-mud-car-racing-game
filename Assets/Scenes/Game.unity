@@ -4738,9 +4738,9 @@ MonoBehaviour:
   - {fileID: 2164127327963018453, guid: 38c09e883ba53ae4a90294e9901e18a6, type: 3}
   - {fileID: 5672511128443799604, guid: d48f561b32d66374c8a6678547ca4f18, type: 3}
   AICarPrefab:
-  - {fileID: 846565767227936635, guid: e5e9431c847e7e749af24aa2d6b31753, type: 3}
-  - {fileID: 3175447201314766584, guid: c4ca9b5d7fa657f4091a377e584b2270, type: 3}
-  - {fileID: 5184981096045690734, guid: 3d7a2bf7849b7074b8416b73969b50c5, type: 3}
+  - {fileID: 7154744136968463349, guid: bb34b67e08a308b45b101e21424e863c, type: 3}
+  - {fileID: 1194211448358543957, guid: 6246cf1be7e9bc5498b689f34611ef0d, type: 3}
+  - {fileID: 7439683601019598718, guid: 5718ac02045d04541ada5b9871ebb0fc, type: 3}
   PlayerSpwnPos: {fileID: 247254603}
   AIStartSpwnPos: {fileID: 1968954093}
   c_VirtualCamera: {fileID: 871468050}
@@ -13090,7 +13090,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1968954092}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -93.5, y: -2.020704, z: 0.016378112}
+  m_LocalPosition: {x: -121.51, y: -2.020704, z: 0.016378112}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

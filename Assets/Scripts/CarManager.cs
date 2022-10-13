@@ -135,6 +135,7 @@ public class CarManager : MonoBehaviour
 
     public void CanDestroy()
     {
+        
         gameObject.SetActive(false);
     }
 
